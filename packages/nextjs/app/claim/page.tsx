@@ -1,8 +1,8 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import Image from "next/image";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { formatEther } from "viem";
 import { useAccount } from "wagmi";
 import { useScaffoldReadContract, useScaffoldWriteContract } from "~~/hooks/scaffold-eth";
@@ -14,8 +14,7 @@ interface ClaimStatus {
   txHash?: string;
 }
 
-export default function ClaimPage() {
-  const router = useRouter();
+function ClaimPageContent() {
   const searchParams = useSearchParams();
   const { address, isConnected } = useAccount();
   const [claimStatus, setClaimStatus] = useState<ClaimStatus>({ type: "idle" });
@@ -279,5 +278,24 @@ export default function ClaimPage() {
         )}
       </div>
     </div>
+  );
+}
+
+export default function ClaimPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="flex items-center justify-center min-h-screen py-10 bg-gray-50">
+          <div className="w-full max-w-2xl px-5 flex flex-col items-center space-y-8">
+            <div className="text-center space-y-4">
+              <div className="loading loading-spinner loading-lg"></div>
+              <p className="text-gray-700">Loading...</p>
+            </div>
+          </div>
+        </div>
+      }
+    >
+      <ClaimPageContent />
+    </Suspense>
   );
 }

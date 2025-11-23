@@ -6,6 +6,10 @@ A decentralized payroll management system built on Ethereum, allowing employers 
 
 Find it on explorer: [https://sepolia.arbiscan.io/address/0x6c15EE71395dc2C4dfa58ff1Ca0334fbC2F8e959](https://sepolia.arbiscan.io/address/0x6c15EE71395dc2C4dfa58ff1Ca0334fbC2F8e959)
 
+**Live demo Employer:** []()
+
+**Live demo Employee:** []()
+
 ## 🎯 Mission
 
 This project provides a trustless, automated payroll system on the blockchain where:
@@ -102,6 +106,7 @@ payroll-app/
 - **Next.js Documentation**: https://nextjs.org/docs
 - **Wagmi Documentation**: https://wagmi.sh
 - **Arbitrum Sepolia Explorer**: https://sepolia.arbiscan.io
+- **ENS Docs**: https://docs.ens.domains/web/resolution
 
 ## 🛠️ Development Commands
 
