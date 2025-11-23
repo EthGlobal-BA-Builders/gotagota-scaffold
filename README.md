@@ -6,9 +6,9 @@ A decentralized payroll management system built on Ethereum, allowing employers 
 
 Find it on explorer: [https://sepolia.arbiscan.io/address/0x6c15EE71395dc2C4dfa58ff1Ca0334fbC2F8e959](https://sepolia.arbiscan.io/address/0x6c15EE71395dc2C4dfa58ff1Ca0334fbC2F8e959)
 
-**Live demo Employer** (create payroll): https://gotagota-scaffold-nextjs-k00n8zx9u-rociocms-projects.vercel.app/
+**Live demo Employer** (create payroll): https://gotagota-scaffold-nextjs.vercel.app/
 
-**Live demo Employee** (claim salary): https://gotagota-scaffold-nextjs-k00n8zx9u-rociocms-projects.vercel.app/claim?payrollId=1&month=11&year=2025
+**Live demo Employee** (claim salary): https://gotagota-scaffold-nextjs.vercel.app/claim?payrollId=1&month=11&year=2025
 
 ## 🎯 Mission
 
