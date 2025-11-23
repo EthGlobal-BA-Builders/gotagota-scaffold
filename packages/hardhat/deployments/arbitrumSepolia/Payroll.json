@@ -1,0 +1,819 @@
+{
+  "address": "0x6c15EE71395dc2C4dfa58ff1Ca0334fbC2F8e959",
+  "abi": [
+    {
+      "inputs": [],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "payrollId",
+          "type": "uint256"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "employee",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "monthlyAmount",
+          "type": "uint256"
+        }
+      ],
+      "name": "EmployeeAdded",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "payrollId",
+          "type": "uint256"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "employer",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "FundsDeposited",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "payrollId",
+          "type": "uint256"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "employee",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "month",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "year",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "PayrollClaimed",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "payrollId",
+          "type": "uint256"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "employer",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "paymentDay",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "months",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "totalAmount",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "address[]",
+          "name": "employees",
+          "type": "address[]"
+        }
+      ],
+      "name": "PayrollCreated",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "payrollId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "employee",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "monthlyAmount",
+          "type": "uint256"
+        }
+      ],
+      "name": "addEmployee",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "payrollId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "month",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "year",
+          "type": "uint256"
+        }
+      ],
+      "name": "claimPayroll",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "paymentDay",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "months",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "expectedTotalAmount",
+          "type": "uint256"
+        }
+      ],
+      "name": "createPayroll",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "payrollId",
+          "type": "uint256"
+        }
+      ],
+      "name": "depositFunds",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "employeePayments",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "employee",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "monthlyAmount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "totalMonths",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "payrollId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "employee",
+          "type": "address"
+        }
+      ],
+      "name": "getEmployeePayment",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "employee",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "monthlyAmount",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "totalMonths",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct Payroll.EmployeePayment",
+          "name": "",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "payrollId",
+          "type": "uint256"
+        }
+      ],
+      "name": "getPayroll",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "employer",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "paymentDay",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "months",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "startMonth",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "startYear",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "totalAmount",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "createdAt",
+              "type": "uint256"
+            },
+            {
+              "internalType": "bool",
+              "name": "active",
+              "type": "bool"
+            }
+          ],
+          "internalType": "struct Payroll.PayrollData",
+          "name": "",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "payrollId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "employee",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "month",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "year",
+          "type": "uint256"
+        }
+      ],
+      "name": "hasClaimedMonth",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "payrollId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "month",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "year",
+          "type": "uint256"
+        }
+      ],
+      "name": "isMonthClaimable",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "monthlyClaims",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "payrollCounter",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "payrolls",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "employer",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "paymentDay",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "months",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "startMonth",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "startYear",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "totalAmount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "createdAt",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bool",
+          "name": "active",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0xb42626115d79a471e88ec5bf6801a0dd63019236f3283dd0495fa0c98ea07c7b",
+  "receipt": {
+    "to": null,
+    "from": "0x0d6968f6275804a4F6593f939DA09F08C49020ba",
+    "contractAddress": "0x6c15EE71395dc2C4dfa58ff1Ca0334fbC2F8e959",
+    "transactionIndex": 1,
+    "gasUsed": "1160243",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "blockHash": "0x640a39f056a648e591967a04503db7162dee02f7dc27d62f23014adfc020a4ff",
+    "transactionHash": "0xb42626115d79a471e88ec5bf6801a0dd63019236f3283dd0495fa0c98ea07c7b",
+    "logs": [],
+    "blockNumber": 218017996,
+    "cumulativeGasUsed": "1160243",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [],
+  "numDeployments": 5,
+  "solcInputHash": "c72c68cd3a4f5527f32c7b24105938d9",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.28+commit.7893614a\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"payrollId\",\"type\":\"uint256\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"employee\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"monthlyAmount\",\"type\":\"uint256\"}],\"name\":\"EmployeeAdded\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"payrollId\",\"type\":\"uint256\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"employer\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"FundsDeposited\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"payrollId\",\"type\":\"uint256\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"employee\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"month\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"year\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"PayrollClaimed\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"payrollId\",\"type\":\"uint256\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"employer\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"paymentDay\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"months\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"totalAmount\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"address[]\",\"name\":\"employees\",\"type\":\"address[]\"}],\"name\":\"PayrollCreated\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"payrollId\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"employee\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"monthlyAmount\",\"type\":\"uint256\"}],\"name\":\"addEmployee\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"payrollId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"month\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"year\",\"type\":\"uint256\"}],\"name\":\"claimPayroll\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"paymentDay\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"months\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"expectedTotalAmount\",\"type\":\"uint256\"}],\"name\":\"createPayroll\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"payrollId\",\"type\":\"uint256\"}],\"name\":\"depositFunds\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"employeePayments\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"employee\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"monthlyAmount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"totalMonths\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"payrollId\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"employee\",\"type\":\"address\"}],\"name\":\"getEmployeePayment\",\"outputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"employee\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"monthlyAmount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"totalMonths\",\"type\":\"uint256\"}],\"internalType\":\"struct Payroll.EmployeePayment\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"payrollId\",\"type\":\"uint256\"}],\"name\":\"getPayroll\",\"outputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"employer\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"paymentDay\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"months\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"startMonth\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"startYear\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"totalAmount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"createdAt\",\"type\":\"uint256\"},{\"internalType\":\"bool\",\"name\":\"active\",\"type\":\"bool\"}],\"internalType\":\"struct Payroll.PayrollData\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"payrollId\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"employee\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"month\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"year\",\"type\":\"uint256\"}],\"name\":\"hasClaimedMonth\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"payrollId\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"month\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"year\",\"type\":\"uint256\"}],\"name\":\"isMonthClaimable\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"monthlyClaims\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"payrollCounter\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"payrolls\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"employer\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"paymentDay\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"months\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"startMonth\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"startYear\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"totalAmount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"createdAt\",\"type\":\"uint256\"},{\"internalType\":\"bool\",\"name\":\"active\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"addEmployee(uint256,address,uint256)\":{\"details\":\"Add an employee to an existing payroll\",\"params\":{\"employee\":\"The employee address\",\"monthlyAmount\":\"The monthly amount for this employee (in wei)\",\"payrollId\":\"The payroll ID\"}},\"claimPayroll(uint256,uint256,uint256)\":{\"details\":\"Claim payroll for a specific month\",\"params\":{\"month\":\"The month to claim (1-12)\",\"payrollId\":\"The payroll ID\",\"year\":\"The year to claim\"}},\"createPayroll(uint256,uint256,uint256)\":{\"details\":\"Create a new payroll (without employees)\",\"params\":{\"expectedTotalAmount\":\"The expected total amount (calculated off-chain: sum of all employee monthly amounts * months)\",\"months\":\"Number of months the payroll will run\",\"paymentDay\":\"Day of month when payroll becomes claimable (1-31)\"},\"returns\":{\"_0\":\"payrollId The ID of the created payroll\"}},\"depositFunds(uint256)\":{\"details\":\"Deposit funds for a payroll\",\"params\":{\"payrollId\":\"The payroll ID\"}},\"getEmployeePayment(uint256,address)\":{\"details\":\"Get employee payment data\"},\"getPayroll(uint256)\":{\"details\":\"Get payroll data\"},\"hasClaimedMonth(uint256,address,uint256,uint256)\":{\"details\":\"Check if a specific month has been claimed\"},\"isMonthClaimable(uint256,uint256,uint256)\":{\"details\":\"Check if a specific month is claimable\",\"params\":{\"month\":\"The month to check (1-12)\",\"payrollId\":\"The payroll ID\",\"year\":\"The year to check\"}}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"depositFunds(uint256)\":{\"notice\":\"The amount sent must match the totalAmount for the payroll\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/Payroll.sol\":\"Payroll\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"contracts/Payroll.sol\":{\"content\":\"// SPDX-License-Identifier: UNLICENSED\\npragma solidity ^0.8.28;\\n\\ncontract Payroll {\\n\\n    struct PayrollData {\\n        address employer;\\n        uint256 paymentDay; // Day of month (1-31)\\n        uint256 months; // Number of months the payroll will run\\n        uint256 startMonth; // Start month (1-12)\\n        uint256 startYear; // Start year (e.g., 2024)\\n        uint256 totalAmount; // Total amount for all months\\n        uint256 createdAt;\\n        bool active;\\n    }\\n\\n    struct EmployeePayment {\\n        address employee;\\n        uint256 monthlyAmount; // Amount per month\\n        uint256 totalMonths; // Total number of months\\n    }\\n\\n    // Mapping from payroll ID to payroll data\\n    mapping(uint256 => PayrollData) public payrolls;\\n    \\n    // Mapping from payroll ID to employee address to payment data\\n    mapping(uint256 => mapping(address => EmployeePayment)) public employeePayments;\\n    \\n    // Mapping from payroll ID to array of employee addresses\\n    // mapping(uint256 => address[]) public payrollEmployees;\\n    \\n    // Mapping from payroll ID => employee address => month => year => claimed\\n    // Tracks if a specific month/year has been claimed\\n    mapping(uint256 => mapping(address => mapping(uint256 => mapping(uint256 => bool)))) public monthlyClaims;\\n    \\n    // Counter for payroll IDs\\n    uint256 public payrollCounter;\\n\\n    // Events\\n    event PayrollCreated(\\n        uint256 indexed payrollId,\\n        address indexed employer,\\n        uint256 paymentDay,\\n        uint256 months,\\n        uint256 totalAmount,\\n        address[] employees\\n    );\\n    \\n    event PayrollClaimed(\\n        uint256 indexed payrollId,\\n        address indexed employee,\\n        uint256 month,\\n        uint256 year,\\n        uint256 amount\\n    );\\n    \\n    event FundsDeposited(\\n        uint256 indexed payrollId,\\n        address indexed employer,\\n        uint256 amount\\n    );\\n    \\n    event EmployeeAdded(\\n        uint256 indexed payrollId,\\n        address indexed employee,\\n        uint256 monthlyAmount\\n    );\\n\\n    constructor() {}\\n\\n    /**\\n     * @dev Create a new payroll (without employees)\\n     * @param paymentDay Day of month when payroll becomes claimable (1-31)\\n     * @param months Number of months the payroll will run\\n     * @param expectedTotalAmount The expected total amount (calculated off-chain: sum of all employee monthly amounts * months)\\n     * @return payrollId The ID of the created payroll\\n     */\\n    function createPayroll(\\n        uint256 paymentDay,\\n        uint256 months,\\n        uint256 expectedTotalAmount\\n    ) external returns (uint256) {\\n        require(paymentDay >= 1 && paymentDay <= 31, \\\"Invalid payment day\\\");\\n        require(months > 0 && months <= 60, \\\"Invalid months (1-60)\\\");\\n        require(expectedTotalAmount > 0, \\\"Total amount must be greater than 0\\\");\\n\\n        uint256 payrollId = payrollCounter++;\\n        \\n        (uint256 startMonth, uint256 startYear) = getCurrentMonthYear();\\n        \\n        payrolls[payrollId] = PayrollData({\\n            employer: msg.sender,\\n            paymentDay: paymentDay,\\n            months: months,\\n            startMonth: startMonth,\\n            startYear: startYear,\\n            totalAmount: expectedTotalAmount,\\n            createdAt: block.timestamp,\\n            active: true\\n        });\\n\\n        emit PayrollCreated(payrollId, msg.sender, paymentDay, months, expectedTotalAmount, new address[](0));\\n\\n        return payrollId;\\n    }\\n\\n    /**\\n     * @dev Add an employee to an existing payroll\\n     * @param payrollId The payroll ID\\n     * @param employee The employee address\\n     * @param monthlyAmount The monthly amount for this employee (in wei)\\n     */\\n    function addEmployee(\\n        uint256 payrollId,\\n        address employee,\\n        uint256 monthlyAmount\\n    ) external {\\n        PayrollData storage payroll = payrolls[payrollId];\\n        require(payroll.employer == msg.sender, \\\"Not the employer\\\");\\n        require(payroll.active, \\\"Payroll not active\\\");\\n        require(employee != address(0), \\\"Invalid employee address\\\");\\n        require(monthlyAmount > 0, \\\"Amount must be greater than 0\\\");\\n        \\n        // Check if employee already exists\\n        EmployeePayment memory existing = employeePayments[payrollId][employee];\\n        require(existing.monthlyAmount == 0, \\\"Employee already added\\\");\\n\\n        employeePayments[payrollId][employee] = EmployeePayment({\\n            employee: employee,\\n            monthlyAmount: monthlyAmount,\\n            totalMonths: payroll.months\\n        });\\n\\n        emit EmployeeAdded(payrollId, employee, monthlyAmount);\\n    }\\n\\n    /**\\n     * @dev Deposit funds for a payroll\\n     * @param payrollId The payroll ID\\n     * @notice The amount sent must match the totalAmount for the payroll\\n     */\\n    function depositFunds(uint256 payrollId) external payable {\\n        PayrollData storage payroll = payrolls[payrollId];\\n        require(payroll.employer == msg.sender, \\\"Not the employer\\\");\\n        require(payroll.active, \\\"Payroll not active\\\");\\n        require(msg.value == payroll.totalAmount, \\\"Amount mismatch\\\");\\n\\n        emit FundsDeposited(payrollId, msg.sender, msg.value);\\n    }\\n\\n    /**\\n     * @dev Check if a specific month is claimable\\n     * @param payrollId The payroll ID\\n     * @param month The month to check (1-12)\\n     * @param year The year to check\\n     */\\n    function isMonthClaimable(uint256 payrollId, uint256 month, uint256 year) public view returns (bool) {\\n        PayrollData memory payroll = payrolls[payrollId];\\n        if (!payroll.active) return false;\\n\\n        // Check if the month is within the payroll period\\n        uint256 monthsElapsed = getMonthsElapsed(payroll.startMonth, payroll.startYear, month, year);\\n        if (monthsElapsed >= payroll.months) return false;\\n        if (month < payroll.startMonth && year == payroll.startYear) return false;\\n\\n        // Get current day of month\\n        uint256 currentDay = getDayOfMonth(block.timestamp);\\n        (uint256 currentMonth, uint256 currentYear) = getCurrentMonthYear();\\n        \\n        // Can claim if:\\n        // 1. The payment day has passed for this month/year, OR\\n        // 2. It's a previous month/year that hasn't been claimed yet\\n        if (year < currentYear || (year == currentYear && month < currentMonth)) {\\n            // Previous month - can claim if not already claimed\\n            return !monthlyClaims[payrollId][msg.sender][month][year];\\n        } else if (year == currentYear && month == currentMonth) {\\n            // Current month - can claim if payment day has passed\\n            return currentDay >= payroll.paymentDay && !monthlyClaims[payrollId][msg.sender][month][year];\\n        }\\n        \\n        return false;\\n    }\\n\\n    /**\\n     * @dev Claim payroll for a specific month\\n     * @param payrollId The payroll ID\\n     * @param month The month to claim (1-12)\\n     * @param year The year to claim\\n     */\\n    function claimPayroll(uint256 payrollId, uint256 month, uint256 year) external {\\n        EmployeePayment memory payment = employeePayments[payrollId][msg.sender];\\n        require(payment.employee == msg.sender, \\\"Not eligible for this payroll\\\");\\n        require(payment.monthlyAmount > 0, \\\"No amount to claim\\\");\\n        require(!monthlyClaims[payrollId][msg.sender][month][year], \\\"Already claimed this month\\\");\\n        require(isMonthClaimable(payrollId, month, year), \\\"Month not claimable\\\");\\n\\n        // Check that contract has sufficient balance\\n        require(address(this).balance >= payment.monthlyAmount, \\\"Insufficient contract balance\\\");\\n\\n        // Mark as claimed BEFORE external call (checks-effects-interactions pattern)\\n        monthlyClaims[payrollId][msg.sender][month][year] = true;\\n\\n        // Transfer the monthly amount in native ETH\\n        // Limiting gas to 2300 (same as transfer) prevents expensive fallback functions\\n        // and makes gas estimation more reliable\\n        (bool success, ) = payable(msg.sender).call{value: payment.monthlyAmount, gas: 2300}(\\\"\\\");\\n        require(success, \\\"ETH transfer failed\\\");\\n\\n        emit PayrollClaimed(payrollId, msg.sender, month, year, payment.monthlyAmount);\\n    }\\n\\n    /**\\n     * @dev Internal helper to check if month is claimable for a specific employee\\n     */\\n    function isMonthClaimableForEmployee(\\n        uint256 payrollId,\\n        address employee,\\n        uint256 month,\\n        uint256 year,\\n        PayrollData memory payroll\\n    ) internal view returns (bool) {\\n        if (!payroll.active) return false;\\n\\n        // Check if already claimed\\n        if (monthlyClaims[payrollId][employee][month][year]) return false;\\n\\n        // Check if within payroll period\\n        uint256 monthsElapsed = getMonthsElapsed(payroll.startMonth, payroll.startYear, month, year);\\n        if (monthsElapsed >= payroll.months) return false;\\n\\n        // Get current day of month\\n        uint256 currentDay = getDayOfMonth(block.timestamp);\\n        (uint256 currentMonth, uint256 currentYear) = getCurrentMonthYear();\\n        \\n        // Can claim if:\\n        // 1. Previous month/year that hasn't been claimed\\n        // 2. Current month/year and payment day has passed\\n        if (year < currentYear || (year == currentYear && month < currentMonth)) {\\n            return true; // Previous month - can claim\\n        } else if (year == currentYear && month == currentMonth) {\\n            return currentDay >= payroll.paymentDay; // Current month - check payment day\\n        }\\n        \\n        return false;\\n    }\\n\\n    /**\\n     * @dev Get months elapsed between two month/year pairs\\n     */\\n    function getMonthsElapsed(\\n        uint256 startMonth,\\n        uint256 startYear,\\n        uint256 endMonth,\\n        uint256 endYear\\n    ) internal pure returns (uint256) {\\n        if (endYear < startYear) return 0;\\n        if (endYear == startYear && endMonth < startMonth) return 0;\\n        \\n        uint256 yearsDiff = endYear - startYear;\\n        uint256 monthsDiff = endMonth >= startMonth \\n            ? endMonth - startMonth \\n            : (12 - startMonth) + endMonth;\\n        \\n        return (yearsDiff * 12) + monthsDiff;\\n    }\\n\\n    /**\\n     * @dev Get current month and year from timestamp\\n     */\\n    function getCurrentMonthYear() internal view returns (uint256 month, uint256 year) {\\n        // This is a simplified implementation\\n        // In production, use a proper date library or oracle\\n        uint256 timestamp = block.timestamp;\\n        \\n        // Approximate: Jan 1, 1970 = 0\\n        // Each month is approximately 2,592,000 seconds (30 days)\\n        uint256 monthsSinceEpoch = timestamp / 2592000;\\n        \\n        year = 1970 + (monthsSinceEpoch / 12);\\n        month = (monthsSinceEpoch % 12) + 1;\\n        \\n        if (month == 0) month = 1;\\n        if (month > 12) month = 12;\\n    }\\n\\n    /**\\n     * @dev Get day of month from timestamp\\n     */\\n    function getDayOfMonth(uint256 timestamp) internal pure returns (uint256) {\\n        // Simplified implementation\\n        uint256 daysSinceEpoch = timestamp / 86400;\\n        uint256 day = (daysSinceEpoch % 31) + 1;\\n        if (day == 0) day = 1;\\n        if (day > 31) day = 31;\\n        return day;\\n    }\\n\\n    /**\\n     * @dev Get payroll data\\n     */\\n    function getPayroll(uint256 payrollId) external view returns (PayrollData memory) {\\n        return payrolls[payrollId];\\n    }\\n\\n    /**\\n     * @dev Get employee payment data\\n     */\\n    function getEmployeePayment(uint256 payrollId, address employee) external view returns (EmployeePayment memory) {\\n        return employeePayments[payrollId][employee];\\n    }\\n\\n    /**\\n     * @dev Check if a specific month has been claimed\\n     */\\n    function hasClaimedMonth(uint256 payrollId, address employee, uint256 month, uint256 year) external view returns (bool) {\\n        return monthlyClaims[payrollId][employee][month][year];\\n    }\\n}\\n\",\"keccak256\":\"0xdffd40bc402d51d2408324de83abb3b61071c7d0c89fcd509f8162ad5098dee7\",\"license\":\"UNLICENSED\"}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b506114068061001f6000396000f3fe6080604052600436106100a75760003560e01c806386d654a31161006457806386d654a31461020c5780639eda25b31461022c578063ad53841d1461024c578063cdc7fc8b14610297578063d6eafc431461030b578063e74505af1461039257600080fd5b806311689f0e146100ac57806315ab241e146100e15780632e1bec6c146101055780633b76594d14610127578063493961aa1461013a5780635632b1fa1461015a575b600080fd5b3480156100b857600080fd5b506100cc6100c73660046111ac565b6103dc565b60405190151581526020015b60405180910390f35b3480156100ed57600080fd5b506100f760035481565b6040519081526020016100d8565b34801561011157600080fd5b506101256101203660046111ac565b610594565b005b6101256101353660046111d8565b6108a5565b34801561014657600080fd5b5061012561015536600461120d565b6109c8565b34801561016657600080fd5b506101c56101753660046111d8565b600060208190529081526040902080546001820154600283015460038401546004850154600586015460068701546007909701546001600160a01b03909616969495939492939192909160ff1688565b604080516001600160a01b0390991689526020890197909752958701949094526060860192909252608085015260a084015260c0830152151560e0820152610100016100d8565b34801561021857600080fd5b506100f76102273660046111ac565b610c3d565b34801561023857600080fd5b506100cc610247366004611243565b610ee4565b34801561025857600080fd5b5061026c61026736600461127e565b610f23565b6040805182516001600160a01b031681526020808401519082015291810151908201526060016100d8565b3480156102a357600080fd5b506102e66102b236600461127e565b600160208181526000938452604080852090915291835291208054918101546002909101546001600160a01b039092169183565b604080516001600160a01b0390941684526020840192909252908201526060016100d8565b34801561031757600080fd5b5061032b6103263660046111d8565b610fa1565b6040516100d8919081516001600160a01b031681526020808301519082015260408083015190820152606080830151908201526080808301519082015260a0828101519082015260c0808301519082015260e0918201511515918101919091526101000190565b34801561039e57600080fd5b506100cc6103ad366004611243565b600260209081526000948552604080862082529385528385208152918452828420909152825290205460ff1681565b60008381526020818152604080832081516101008101835281546001600160a01b031681526001820154938101939093526002810154918301919091526003810154606083015260048101546080830152600581015460a0830152600681015460c08301526007015460ff16151560e0820181905261045f57600091505061058d565b600061047582606001518360800151878761106e565b90508160400151811061048d5760009250505061058d565b8160600151851080156104a35750816080015184145b156104b35760009250505061058d565b60006104be426110fb565b90506000806104cb611146565b91509150808710806104e6575080871480156104e657508188105b156105265750505060008681526002602090815260408083203384528252808320888452825280832087845290915290205460ff1615925061058d915050565b808714801561053457508188145b1561058357846020015183101580156105775750600089815260026020908152604080832033845282528083208b845282528083208a845290915290205460ff16155b9550505050505061058d565b6000955050505050505b9392505050565b60008381526001602081815260408084203380865290835293819020815160608101835281546001600160a01b031680825294820154938101939093526002015490820152911461062c5760405162461bcd60e51b815260206004820152601d60248201527f4e6f7420656c696769626c6520666f72207468697320706179726f6c6c00000060448201526064015b60405180910390fd5b60008160200151116106755760405162461bcd60e51b81526020600482015260126024820152714e6f20616d6f756e7420746f20636c61696d60701b6044820152606401610623565b60008481526002602090815260408083203384528252808320868452825280832085845290915290205460ff16156106ef5760405162461bcd60e51b815260206004820152601a60248201527f416c726561647920636c61696d65642074686973206d6f6e74680000000000006044820152606401610623565b6106fa8484846103dc565b61073c5760405162461bcd60e51b81526020600482015260136024820152724d6f6e7468206e6f7420636c61696d61626c6560681b6044820152606401610623565b80602001514710156107905760405162461bcd60e51b815260206004820152601d60248201527f496e73756666696369656e7420636f6e74726163742062616c616e63650000006044820152606401610623565b60008481526002602090815260408083203380855290835281842087855283528184208685528352818420805460ff191660011790559184015190516108fc919084818181858888f193505050503d806000811461080a576040519150601f19603f3d011682016040523d82523d6000602084013e61080f565b606091505b50509050806108565760405162461bcd60e51b8152602060048201526013602482015272115512081d1c985b9cd9995c8819985a5b1959606a1b6044820152606401610623565b60208083015160408051878152928301869052820152339086907f041266c28d5f97c86ac24c0c2c40dd5ec159d64d270ff7f697cd314bd1e754fb906060015b60405180910390a35050505050565b600081815260208190526040902080546001600160a01b031633146108ff5760405162461bcd60e51b815260206004820152601060248201526f2737ba103a34329032b6b83637bcb2b960811b6044820152606401610623565b600781015460ff166109485760405162461bcd60e51b8152602060048201526012602482015271506179726f6c6c206e6f742061637469766560701b6044820152606401610623565b8060050154341461098d5760405162461bcd60e51b815260206004820152600f60248201526e082dadeeadce840dad2e6dac2e8c6d608b1b6044820152606401610623565b604051348152339083907fe030e47e27825a2ad1b19e4cf2e70bfbfb3124af275c7727a82b114ba7b29a859060200160405180910390a35050565b600083815260208190526040902080546001600160a01b03163314610a225760405162461bcd60e51b815260206004820152601060248201526f2737ba103a34329032b6b83637bcb2b960811b6044820152606401610623565b600781015460ff16610a6b5760405162461bcd60e51b8152602060048201526012602482015271506179726f6c6c206e6f742061637469766560701b6044820152606401610623565b6001600160a01b038316610ac15760405162461bcd60e51b815260206004820152601860248201527f496e76616c696420656d706c6f796565206164647265737300000000000000006044820152606401610623565b60008211610b115760405162461bcd60e51b815260206004820152601d60248201527f416d6f756e74206d7573742062652067726561746572207468616e20300000006044820152606401610623565b60008481526001602081815260408084206001600160a01b03808916865290835293819020815160608101835281549095168552928301549184018290526002909201549183019190915215610ba25760405162461bcd60e51b8152602060048201526016602482015275115b5c1b1bde595948185b1c9958591e48185919195960521b6044820152606401610623565b604080516060810182526001600160a01b03868116808352602080840188815260028881015486880190815260008d81526001808652898220878352865290899020975188546001600160a01b03191697169690961787559151948601949094555193909201929092559151858152909187917fbf8360766872acaeb00f0e4ac11f4a3b1f82c31bc71c469b66402847f7189c129101610896565b600060018410158015610c515750601f8411155b610c935760405162461bcd60e51b8152602060048201526013602482015272496e76616c6964207061796d656e742064617960681b6044820152606401610623565b600083118015610ca45750603c8311155b610ce85760405162461bcd60e51b8152602060048201526015602482015274496e76616c6964206d6f6e7468732028312d36302960581b6044820152606401610623565b60008211610d445760405162461bcd60e51b815260206004820152602360248201527f546f74616c20616d6f756e74206d75737420626520677265617465722074686160448201526206e20360ec1b6064820152608401610623565b6003805460009182610d55836112c0565b919050559050600080610d66611146565b91509150604051806101000160405280336001600160a01b031681526020018881526020018781526020018381526020018281526020018681526020014281526020016001151581525060008085815260200190815260200160002060008201518160000160006101000a8154816001600160a01b0302191690836001600160a01b031602179055506020820151816001015560408201518160020155606082015181600301556080820151816004015560a0820151816005015560c0820151816006015560e08201518160070160006101000a81548160ff021916908315150217905550905050336001600160a01b0316837fb41774142cbc40fa9ee766f15bd7bbb93e367f50228b9a83dc9735f6db6595c1898989600067ffffffffffffffff811115610e9757610e976112d9565b604051908082528060200260200182016040528015610ec0578160200160208202803683370190505b50604051610ed194939291906112ef565b60405180910390a3509095945050505050565b60008481526002602090815260408083206001600160a01b03871684528252808320858452825280832084845290915290205460ff165b949350505050565b610f50604051806060016040528060006001600160a01b0316815260200160008152602001600081525090565b5060008281526001602081815260408084206001600160a01b038087168652908352938190208151606081018352815490951685529283015491840191909152600290910154908201525b92915050565b610ff460405180610100016040528060006001600160a01b031681526020016000815260200160008152602001600081526020016000815260200160008152602001600081526020016000151581525090565b506000908152602081815260409182902082516101008101845281546001600160a01b031681526001820154928101929092526002810154928201929092526003820154606082015260048201546080820152600582015460a0820152600682015460c082015260079091015460ff16151560e082015290565b60008382101561108057506000610f1b565b838214801561108e57508483105b1561109b57506000610f1b565b60006110a78584611355565b90506000868510156110ce57846110bf88600c611355565b6110c99190611368565b6110d8565b6110d88786611355565b9050806110e683600c61137b565b6110f09190611368565b979650505050505050565b60008061110b62015180846113a8565b9050600061111a601f836113bc565b611125906001611368565b905080600003611133575060015b601f81111561058d5750601f9392505050565b600080428161115862278d00836113a8565b9050611165600c826113a8565b611171906107b2611368565b925061117e600c826113bc565b611189906001611368565b93508360000361119857600193505b600c8411156111a657600c93505b50509091565b6000806000606084860312156111c157600080fd5b505081359360208301359350604090920135919050565b6000602082840312156111ea57600080fd5b5035919050565b80356001600160a01b038116811461120857600080fd5b919050565b60008060006060848603121561122257600080fd5b83359250611232602085016111f1565b929592945050506040919091013590565b6000806000806080858703121561125957600080fd5b84359350611269602086016111f1565b93969395505050506040820135916060013590565b6000806040838503121561129157600080fd5b823591506112a1602084016111f1565b90509250929050565b634e487b7160e01b600052601160045260246000fd5b6000600182016112d2576112d26112aa565b5060010190565b634e487b7160e01b600052604160045260246000fd5b6000608082018683528560208401528460408401526080606084015280845180835260a08501915060208601925060005b818110156113475783516001600160a01b0316835260209384019390920191600101611320565b509098975050505050505050565b81810381811115610f9b57610f9b6112aa565b80820180821115610f9b57610f9b6112aa565b8082028115828204841417610f9b57610f9b6112aa565b634e487b7160e01b600052601260045260246000fd5b6000826113b7576113b7611392565b500490565b6000826113cb576113cb611392565b50069056fea2646970667358221220a9c1fe4846492e0be9f3c25e95ea77eb31c60ad31b0919a0d79857093fceb43064736f6c634300081c0033",
+  "deployedBytecode": "0x6080604052600436106100a75760003560e01c806386d654a31161006457806386d654a31461020c5780639eda25b31461022c578063ad53841d1461024c578063cdc7fc8b14610297578063d6eafc431461030b578063e74505af1461039257600080fd5b806311689f0e146100ac57806315ab241e146100e15780632e1bec6c146101055780633b76594d14610127578063493961aa1461013a5780635632b1fa1461015a575b600080fd5b3480156100b857600080fd5b506100cc6100c73660046111ac565b6103dc565b60405190151581526020015b60405180910390f35b3480156100ed57600080fd5b506100f760035481565b6040519081526020016100d8565b34801561011157600080fd5b506101256101203660046111ac565b610594565b005b6101256101353660046111d8565b6108a5565b34801561014657600080fd5b5061012561015536600461120d565b6109c8565b34801561016657600080fd5b506101c56101753660046111d8565b600060208190529081526040902080546001820154600283015460038401546004850154600586015460068701546007909701546001600160a01b03909616969495939492939192909160ff1688565b604080516001600160a01b0390991689526020890197909752958701949094526060860192909252608085015260a084015260c0830152151560e0820152610100016100d8565b34801561021857600080fd5b506100f76102273660046111ac565b610c3d565b34801561023857600080fd5b506100cc610247366004611243565b610ee4565b34801561025857600080fd5b5061026c61026736600461127e565b610f23565b6040805182516001600160a01b031681526020808401519082015291810151908201526060016100d8565b3480156102a357600080fd5b506102e66102b236600461127e565b600160208181526000938452604080852090915291835291208054918101546002909101546001600160a01b039092169183565b604080516001600160a01b0390941684526020840192909252908201526060016100d8565b34801561031757600080fd5b5061032b6103263660046111d8565b610fa1565b6040516100d8919081516001600160a01b031681526020808301519082015260408083015190820152606080830151908201526080808301519082015260a0828101519082015260c0808301519082015260e0918201511515918101919091526101000190565b34801561039e57600080fd5b506100cc6103ad366004611243565b600260209081526000948552604080862082529385528385208152918452828420909152825290205460ff1681565b60008381526020818152604080832081516101008101835281546001600160a01b031681526001820154938101939093526002810154918301919091526003810154606083015260048101546080830152600581015460a0830152600681015460c08301526007015460ff16151560e0820181905261045f57600091505061058d565b600061047582606001518360800151878761106e565b90508160400151811061048d5760009250505061058d565b8160600151851080156104a35750816080015184145b156104b35760009250505061058d565b60006104be426110fb565b90506000806104cb611146565b91509150808710806104e6575080871480156104e657508188105b156105265750505060008681526002602090815260408083203384528252808320888452825280832087845290915290205460ff1615925061058d915050565b808714801561053457508188145b1561058357846020015183101580156105775750600089815260026020908152604080832033845282528083208b845282528083208a845290915290205460ff16155b9550505050505061058d565b6000955050505050505b9392505050565b60008381526001602081815260408084203380865290835293819020815160608101835281546001600160a01b031680825294820154938101939093526002015490820152911461062c5760405162461bcd60e51b815260206004820152601d60248201527f4e6f7420656c696769626c6520666f72207468697320706179726f6c6c00000060448201526064015b60405180910390fd5b60008160200151116106755760405162461bcd60e51b81526020600482015260126024820152714e6f20616d6f756e7420746f20636c61696d60701b6044820152606401610623565b60008481526002602090815260408083203384528252808320868452825280832085845290915290205460ff16156106ef5760405162461bcd60e51b815260206004820152601a60248201527f416c726561647920636c61696d65642074686973206d6f6e74680000000000006044820152606401610623565b6106fa8484846103dc565b61073c5760405162461bcd60e51b81526020600482015260136024820152724d6f6e7468206e6f7420636c61696d61626c6560681b6044820152606401610623565b80602001514710156107905760405162461bcd60e51b815260206004820152601d60248201527f496e73756666696369656e7420636f6e74726163742062616c616e63650000006044820152606401610623565b60008481526002602090815260408083203380855290835281842087855283528184208685528352818420805460ff191660011790559184015190516108fc919084818181858888f193505050503d806000811461080a576040519150601f19603f3d011682016040523d82523d6000602084013e61080f565b606091505b50509050806108565760405162461bcd60e51b8152602060048201526013602482015272115512081d1c985b9cd9995c8819985a5b1959606a1b6044820152606401610623565b60208083015160408051878152928301869052820152339086907f041266c28d5f97c86ac24c0c2c40dd5ec159d64d270ff7f697cd314bd1e754fb906060015b60405180910390a35050505050565b600081815260208190526040902080546001600160a01b031633146108ff5760405162461bcd60e51b815260206004820152601060248201526f2737ba103a34329032b6b83637bcb2b960811b6044820152606401610623565b600781015460ff166109485760405162461bcd60e51b8152602060048201526012602482015271506179726f6c6c206e6f742061637469766560701b6044820152606401610623565b8060050154341461098d5760405162461bcd60e51b815260206004820152600f60248201526e082dadeeadce840dad2e6dac2e8c6d608b1b6044820152606401610623565b604051348152339083907fe030e47e27825a2ad1b19e4cf2e70bfbfb3124af275c7727a82b114ba7b29a859060200160405180910390a35050565b600083815260208190526040902080546001600160a01b03163314610a225760405162461bcd60e51b815260206004820152601060248201526f2737ba103a34329032b6b83637bcb2b960811b6044820152606401610623565b600781015460ff16610a6b5760405162461bcd60e51b8152602060048201526012602482015271506179726f6c6c206e6f742061637469766560701b6044820152606401610623565b6001600160a01b038316610ac15760405162461bcd60e51b815260206004820152601860248201527f496e76616c696420656d706c6f796565206164647265737300000000000000006044820152606401610623565b60008211610b115760405162461bcd60e51b815260206004820152601d60248201527f416d6f756e74206d7573742062652067726561746572207468616e20300000006044820152606401610623565b60008481526001602081815260408084206001600160a01b03808916865290835293819020815160608101835281549095168552928301549184018290526002909201549183019190915215610ba25760405162461bcd60e51b8152602060048201526016602482015275115b5c1b1bde595948185b1c9958591e48185919195960521b6044820152606401610623565b604080516060810182526001600160a01b03868116808352602080840188815260028881015486880190815260008d81526001808652898220878352865290899020975188546001600160a01b03191697169690961787559151948601949094555193909201929092559151858152909187917fbf8360766872acaeb00f0e4ac11f4a3b1f82c31bc71c469b66402847f7189c129101610896565b600060018410158015610c515750601f8411155b610c935760405162461bcd60e51b8152602060048201526013602482015272496e76616c6964207061796d656e742064617960681b6044820152606401610623565b600083118015610ca45750603c8311155b610ce85760405162461bcd60e51b8152602060048201526015602482015274496e76616c6964206d6f6e7468732028312d36302960581b6044820152606401610623565b60008211610d445760405162461bcd60e51b815260206004820152602360248201527f546f74616c20616d6f756e74206d75737420626520677265617465722074686160448201526206e20360ec1b6064820152608401610623565b6003805460009182610d55836112c0565b919050559050600080610d66611146565b91509150604051806101000160405280336001600160a01b031681526020018881526020018781526020018381526020018281526020018681526020014281526020016001151581525060008085815260200190815260200160002060008201518160000160006101000a8154816001600160a01b0302191690836001600160a01b031602179055506020820151816001015560408201518160020155606082015181600301556080820151816004015560a0820151816005015560c0820151816006015560e08201518160070160006101000a81548160ff021916908315150217905550905050336001600160a01b0316837fb41774142cbc40fa9ee766f15bd7bbb93e367f50228b9a83dc9735f6db6595c1898989600067ffffffffffffffff811115610e9757610e976112d9565b604051908082528060200260200182016040528015610ec0578160200160208202803683370190505b50604051610ed194939291906112ef565b60405180910390a3509095945050505050565b60008481526002602090815260408083206001600160a01b03871684528252808320858452825280832084845290915290205460ff165b949350505050565b610f50604051806060016040528060006001600160a01b0316815260200160008152602001600081525090565b5060008281526001602081815260408084206001600160a01b038087168652908352938190208151606081018352815490951685529283015491840191909152600290910154908201525b92915050565b610ff460405180610100016040528060006001600160a01b031681526020016000815260200160008152602001600081526020016000815260200160008152602001600081526020016000151581525090565b506000908152602081815260409182902082516101008101845281546001600160a01b031681526001820154928101929092526002810154928201929092526003820154606082015260048201546080820152600582015460a0820152600682015460c082015260079091015460ff16151560e082015290565b60008382101561108057506000610f1b565b838214801561108e57508483105b1561109b57506000610f1b565b60006110a78584611355565b90506000868510156110ce57846110bf88600c611355565b6110c99190611368565b6110d8565b6110d88786611355565b9050806110e683600c61137b565b6110f09190611368565b979650505050505050565b60008061110b62015180846113a8565b9050600061111a601f836113bc565b611125906001611368565b905080600003611133575060015b601f81111561058d5750601f9392505050565b600080428161115862278d00836113a8565b9050611165600c826113a8565b611171906107b2611368565b925061117e600c826113bc565b611189906001611368565b93508360000361119857600193505b600c8411156111a657600c93505b50509091565b6000806000606084860312156111c157600080fd5b505081359360208301359350604090920135919050565b6000602082840312156111ea57600080fd5b5035919050565b80356001600160a01b038116811461120857600080fd5b919050565b60008060006060848603121561122257600080fd5b83359250611232602085016111f1565b929592945050506040919091013590565b6000806000806080858703121561125957600080fd5b84359350611269602086016111f1565b93969395505050506040820135916060013590565b6000806040838503121561129157600080fd5b823591506112a1602084016111f1565b90509250929050565b634e487b7160e01b600052601160045260246000fd5b6000600182016112d2576112d26112aa565b5060010190565b634e487b7160e01b600052604160045260246000fd5b6000608082018683528560208401528460408401526080606084015280845180835260a08501915060208601925060005b818110156113475783516001600160a01b0316835260209384019390920191600101611320565b509098975050505050505050565b81810381811115610f9b57610f9b6112aa565b80820180821115610f9b57610f9b6112aa565b8082028115828204841417610f9b57610f9b6112aa565b634e487b7160e01b600052601260045260246000fd5b6000826113b7576113b7611392565b500490565b6000826113cb576113cb611392565b50069056fea2646970667358221220a9c1fe4846492e0be9f3c25e95ea77eb31c60ad31b0919a0d79857093fceb43064736f6c634300081c0033",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {
+      "addEmployee(uint256,address,uint256)": {
+        "details": "Add an employee to an existing payroll",
+        "params": {
+          "employee": "The employee address",
+          "monthlyAmount": "The monthly amount for this employee (in wei)",
+          "payrollId": "The payroll ID"
+        }
+      },
+      "claimPayroll(uint256,uint256,uint256)": {
+        "details": "Claim payroll for a specific month",
+        "params": {
+          "month": "The month to claim (1-12)",
+          "payrollId": "The payroll ID",
+          "year": "The year to claim"
+        }
+      },
+      "createPayroll(uint256,uint256,uint256)": {
+        "details": "Create a new payroll (without employees)",
+        "params": {
+          "expectedTotalAmount": "The expected total amount (calculated off-chain: sum of all employee monthly amounts * months)",
+          "months": "Number of months the payroll will run",
+          "paymentDay": "Day of month when payroll becomes claimable (1-31)"
+        },
+        "returns": {
+          "_0": "payrollId The ID of the created payroll"
+        }
+      },
+      "depositFunds(uint256)": {
+        "details": "Deposit funds for a payroll",
+        "params": {
+          "payrollId": "The payroll ID"
+        }
+      },
+      "getEmployeePayment(uint256,address)": {
+        "details": "Get employee payment data"
+      },
+      "getPayroll(uint256)": {
+        "details": "Get payroll data"
+      },
+      "hasClaimedMonth(uint256,address,uint256,uint256)": {
+        "details": "Check if a specific month has been claimed"
+      },
+      "isMonthClaimable(uint256,uint256,uint256)": {
+        "details": "Check if a specific month is claimable",
+        "params": {
+          "month": "The month to check (1-12)",
+          "payrollId": "The payroll ID",
+          "year": "The year to check"
+        }
+      }
+    },
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {
+      "depositFunds(uint256)": {
+        "notice": "The amount sent must match the totalAmount for the payroll"
+      }
+    },
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 30,
+        "contract": "contracts/Payroll.sol:Payroll",
+        "label": "payrolls",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_mapping(t_uint256,t_struct(PayrollData)18_storage)"
+      },
+      {
+        "astId": 37,
+        "contract": "contracts/Payroll.sol:Payroll",
+        "label": "employeePayments",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_mapping(t_uint256,t_mapping(t_address,t_struct(EmployeePayment)25_storage))"
+      },
+      {
+        "astId": 47,
+        "contract": "contracts/Payroll.sol:Payroll",
+        "label": "monthlyClaims",
+        "offset": 0,
+        "slot": "2",
+        "type": "t_mapping(t_uint256,t_mapping(t_address,t_mapping(t_uint256,t_mapping(t_uint256,t_bool))))"
+      },
+      {
+        "astId": 49,
+        "contract": "contracts/Payroll.sol:Payroll",
+        "label": "payrollCounter",
+        "offset": 0,
+        "slot": "3",
+        "type": "t_uint256"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_bool": {
+        "encoding": "inplace",
+        "label": "bool",
+        "numberOfBytes": "1"
+      },
+      "t_mapping(t_address,t_mapping(t_uint256,t_mapping(t_uint256,t_bool)))": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => mapping(uint256 => mapping(uint256 => bool)))",
+        "numberOfBytes": "32",
+        "value": "t_mapping(t_uint256,t_mapping(t_uint256,t_bool))"
+      },
+      "t_mapping(t_address,t_struct(EmployeePayment)25_storage)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => struct Payroll.EmployeePayment)",
+        "numberOfBytes": "32",
+        "value": "t_struct(EmployeePayment)25_storage"
+      },
+      "t_mapping(t_uint256,t_bool)": {
+        "encoding": "mapping",
+        "key": "t_uint256",
+        "label": "mapping(uint256 => bool)",
+        "numberOfBytes": "32",
+        "value": "t_bool"
+      },
+      "t_mapping(t_uint256,t_mapping(t_address,t_mapping(t_uint256,t_mapping(t_uint256,t_bool))))": {
+        "encoding": "mapping",
+        "key": "t_uint256",
+        "label": "mapping(uint256 => mapping(address => mapping(uint256 => mapping(uint256 => bool))))",
+        "numberOfBytes": "32",
+        "value": "t_mapping(t_address,t_mapping(t_uint256,t_mapping(t_uint256,t_bool)))"
+      },
+      "t_mapping(t_uint256,t_mapping(t_address,t_struct(EmployeePayment)25_storage))": {
+        "encoding": "mapping",
+        "key": "t_uint256",
+        "label": "mapping(uint256 => mapping(address => struct Payroll.EmployeePayment))",
+        "numberOfBytes": "32",
+        "value": "t_mapping(t_address,t_struct(EmployeePayment)25_storage)"
+      },
+      "t_mapping(t_uint256,t_mapping(t_uint256,t_bool))": {
+        "encoding": "mapping",
+        "key": "t_uint256",
+        "label": "mapping(uint256 => mapping(uint256 => bool))",
+        "numberOfBytes": "32",
+        "value": "t_mapping(t_uint256,t_bool)"
+      },
+      "t_mapping(t_uint256,t_struct(PayrollData)18_storage)": {
+        "encoding": "mapping",
+        "key": "t_uint256",
+        "label": "mapping(uint256 => struct Payroll.PayrollData)",
+        "numberOfBytes": "32",
+        "value": "t_struct(PayrollData)18_storage"
+      },
+      "t_struct(EmployeePayment)25_storage": {
+        "encoding": "inplace",
+        "label": "struct Payroll.EmployeePayment",
+        "members": [
+          {
+            "astId": 20,
+            "contract": "contracts/Payroll.sol:Payroll",
+            "label": "employee",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_address"
+          },
+          {
+            "astId": 22,
+            "contract": "contracts/Payroll.sol:Payroll",
+            "label": "monthlyAmount",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 24,
+            "contract": "contracts/Payroll.sol:Payroll",
+            "label": "totalMonths",
+            "offset": 0,
+            "slot": "2",
+            "type": "t_uint256"
+          }
+        ],
+        "numberOfBytes": "96"
+      },
+      "t_struct(PayrollData)18_storage": {
+        "encoding": "inplace",
+        "label": "struct Payroll.PayrollData",
+        "members": [
+          {
+            "astId": 3,
+            "contract": "contracts/Payroll.sol:Payroll",
+            "label": "employer",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_address"
+          },
+          {
+            "astId": 5,
+            "contract": "contracts/Payroll.sol:Payroll",
+            "label": "paymentDay",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 7,
+            "contract": "contracts/Payroll.sol:Payroll",
+            "label": "months",
+            "offset": 0,
+            "slot": "2",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 9,
+            "contract": "contracts/Payroll.sol:Payroll",
+            "label": "startMonth",
+            "offset": 0,
+            "slot": "3",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 11,
+            "contract": "contracts/Payroll.sol:Payroll",
+            "label": "startYear",
+            "offset": 0,
+            "slot": "4",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 13,
+            "contract": "contracts/Payroll.sol:Payroll",
+            "label": "totalAmount",
+            "offset": 0,
+            "slot": "5",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 15,
+            "contract": "contracts/Payroll.sol:Payroll",
+            "label": "createdAt",
+            "offset": 0,
+            "slot": "6",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 17,
+            "contract": "contracts/Payroll.sol:Payroll",
+            "label": "active",
+            "offset": 0,
+            "slot": "7",
+            "type": "t_bool"
+          }
+        ],
+        "numberOfBytes": "256"
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      }
+    }
+  }
+}
