@@ -1,80 +1,126 @@
-# 🏗 Scaffold-ETH 2
+# 💰 Payroll App
 
-<h4 align="center">
-  <a href="https://docs.scaffoldeth.io">Documentation</a> |
-  <a href="https://scaffoldeth.io">Website</a>
-</h4>
+A decentralized payroll management system built on Ethereum, allowing employers to set up recurring payroll schedules and employees to claim their monthly payments in native ETH.
 
-🧪 An open-source, up-to-date toolkit for building decentralized applications (dapps) on the Ethereum blockchain. It's designed to make it easier for developers to create and deploy smart contracts and build user interfaces that interact with those contracts.
+## 🎯 Mission
 
-⚙️ Built using NextJS, RainbowKit, Hardhat, Wagmi, Viem, and Typescript.
+This project provides a trustless, automated payroll system on the blockchain where:
 
-- ✅ **Contract Hot Reload**: Your frontend auto-adapts to your smart contract as you edit it.
-- 🪝 **[Custom hooks](https://docs.scaffoldeth.io/hooks/)**: Collection of React hooks wrapper around [wagmi](https://wagmi.sh/) to simplify interactions with smart contracts with typescript autocompletion.
-- 🧱 [**Components**](https://docs.scaffoldeth.io/components/): Collection of common web3 components to quickly build your frontend.
-- 🔥 **Burner Wallet & Local Faucet**: Quickly test your application with a burner wallet and local faucet.
-- 🔐 **Integration with Wallet Providers**: Connect to different wallet providers and interact with the Ethereum network.
+- **Employers** can create payroll schedules, add employees, and deposit funds
+- **Employees** can claim their monthly payments on designated payment days
+- All transactions are transparent, verifiable, and executed on-chain using native ETH.
 
-![Debug Contracts tab](https://github.com/scaffold-eth/scaffold-eth-2/assets/55535804/b237af0c-5027-4849-a5c1-2e31495cccb1)
+<img width="2560" height="1137" alt="image" src="https://github.com/user-attachments/assets/44fd83f4-57c7-4bc7-88fa-a2813fc24a97" />
 
-## Requirements
+## 🔧 Contract Functions
 
-Before you begin, you need to install the following tools:
+### For Employers
 
-- [Node (>= v20.18.3)](https://nodejs.org/en/download/)
-- Yarn ([v1](https://classic.yarnpkg.com/en/docs/install/) or [v2+](https://yarnpkg.com/getting-started/install))
-- [Git](https://git-scm.com/downloads)
+- `createPayroll(paymentDay, months, expectedTotalAmount)` - Create a new payroll schedule
+- `addEmployee(payrollId, employee, monthlyAmount)` - Add an employee to a payroll
+- `depositFunds(payrollId)` - Deposit ETH to fund the payroll
 
-## Quickstart
+### For Employees
 
-To get started with Scaffold-ETH 2, follow the steps below:
+- `claimPayroll(payrollId, month, year)` - Claim monthly payment for a specific month
+- `isMonthClaimable(payrollId, month, year)` - Check if a month is claimable
+- `getEmployeePayment(payrollId, employee)` - Get employee payment details
 
-1. Install dependencies if it was skipped in CLI:
+## 🚀 Quick Start
 
-```
-cd my-dapp-example
+### Prerequisites
+
+- Node.js (>= v20.18.3)
+- Yarn (v1 or v2+)
+- Git
+
+### Installation
+
+```bash
+# Install dependencies
 yarn install
 ```
 
-2. Run a local network in the first terminal:
+### Local Development
+
+1. **Start local blockchain** (Terminal 1):
+
+   ```bash
+   yarn chain
+   ```
+
+2. **Deploy contracts** (Terminal 2):
+
+   ```bash
+   yarn deploy
+   ```
+
+3. **Start frontend** (Terminal 3):
+   ```bash
+   yarn start
+   ```
+
+Visit `http://localhost:3000` to interact with the app.
+
+### Deploy to Arbitrum Sepolia
+
+```bash
+# Deploy to Arbitrum Sepolia testnet
+yarn deploy --network arbitrumSepolia
+
+# Verify contract (automatic after deployment)
+# Or manually: yarn hardhat verify --network arbitrumSepolia <CONTRACT_ADDRESS>
+```
+
+## 📁 Project Structure
 
 ```
-yarn chain
+payroll-app/
+├── packages/
+│   ├── hardhat/              # Smart contract development
+│   │   ├── contracts/
+│   │   │   └── Payroll.sol   # Main payroll contract
+│   │   ├── deploy/
+│   │   │   └── 00_deploy_your_contract.ts  # Deployment script
+│   │   └── hardhat.config.ts # Hardhat configuration
+│   │
+│   └── nextjs/               # Frontend application
+│       ├── app/              # Next.js app router pages
+│       ├── components/       # React components
+└── package.json              # Root workspace configuration
 ```
 
-This command starts a local Ethereum network using Hardhat. The network runs on your local machine and can be used for testing and development. You can customize the network configuration in `packages/hardhat/hardhat.config.ts`.
+## 📚 Useful Links
 
-3. On a second terminal, deploy the test contract:
+- **Scaffold-ETH 2 Docs**: https://docs.scaffoldeth.io
+- **Scaffold-ETH 2 Website**: https://scaffoldeth.io
+- **Hardhat Documentation**: https://hardhat.org/docs
+- **Next.js Documentation**: https://nextjs.org/docs
+- **Wagmi Documentation**: https://wagmi.sh
+- **Arbitrum Sepolia Explorer**: https://sepolia.arbiscan.io
 
+## 🛠️ Development Commands
+
+```bash
+# Compile contracts
+yarn hardhat:compile
+
+# Run tests
+yarn hardhat:test
+
+# Check account balance
+yarn account
+
+# Generate new account
+yarn account:generate
+
+# Format code
+yarn format
+
+# Lint code
+yarn lint
 ```
-yarn deploy
-```
 
-This command deploys a test smart contract to the local network. The contract is located in `packages/hardhat/contracts` and can be modified to suit your needs. The `yarn deploy` command uses the deploy script located in `packages/hardhat/deploy` to deploy the contract to the network. You can also customize the deploy script.
+## 📝 License
 
-4. On a third terminal, start your NextJS app:
-
-```
-yarn start
-```
-
-Visit your app on: `http://localhost:3000`. You can interact with your smart contract using the `Debug Contracts` page. You can tweak the app config in `packages/nextjs/scaffold.config.ts`.
-
-Run smart contract test with `yarn hardhat:test`
-
-- Edit your smart contracts in `packages/hardhat/contracts`
-- Edit your frontend homepage at `packages/nextjs/app/page.tsx`. For guidance on [routing](https://nextjs.org/docs/app/building-your-application/routing/defining-routes) and configuring [pages/layouts](https://nextjs.org/docs/app/building-your-application/routing/pages-and-layouts) checkout the Next.js documentation.
-- Edit your deployment scripts in `packages/hardhat/deploy`
-
-
-## Documentation
-
-Visit our [docs](https://docs.scaffoldeth.io) to learn how to start building with Scaffold-ETH 2.
-
-To know more about its features, check out our [website](https://scaffoldeth.io).
-
-## Contributing to Scaffold-ETH 2
-
-We welcome contributions to Scaffold-ETH 2!
-
-Please see [CONTRIBUTING.MD](https://github.com/scaffold-eth/scaffold-eth-2/blob/main/CONTRIBUTING.md) for more information and guidelines for contributing to Scaffold-ETH 2.
+See [LICENCE](LICENCE) file for details.
