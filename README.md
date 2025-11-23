@@ -1,6 +1,6 @@
-# 💰 Payroll App
+# 💰 GotaGota — Web3 Payroll with Inflation Shield
 
-A decentralized payroll management system built on Ethereum, allowing employers to set up recurring payroll schedules and employees to claim their monthly payments in native ETH.
+GotaGota is a decentralized payroll protocol that lets employers set recurring payment schedules and employees claim monthly wages on-chain in minutes. Built during EthGlobal BA, it targets real needs in Argentina: instant access to funds, near‑zero fees, and protection against inflation via stablecoins.
 
 #### Deployed on Arbitrum Sepolia at: [0x6c15EE71395dc2C4dfa58ff1Ca0334fbC2F8e959](https://sepolia.arbiscan.io/address/0x6c15EE71395dc2C4dfa58ff1Ca0334fbC2F8e959)
 
@@ -10,15 +10,79 @@ Find it on explorer: [https://sepolia.arbiscan.io/address/0x6c15EE71395dc2C4dfa5
 
 **Live demo Employee** (claim salary): https://gotagota-scaffold-nextjs.vercel.app/claim?payrollId=1&month=11&year=2025
 
-## 🎯 Mission
+## 🎯 Why GotaGota
 
-This project provides a trustless, automated payroll system on the blockchain where:
+Argentina faces persistent inflation and volatility, eroding savings overnight and delaying access to earnings via traditional rails. GotaGota delivers:
 
-- **Employers** can create payroll schedules, add employees, and deposit funds
-- **Employees** can claim their monthly payments on designated payment days
-- All transactions are transparent, verifiable, and executed on-chain using native ETH.
+- Instant settlement: Employees claim funds the moment they’re eligible—no banking delays.
+
+- Near‑zero fees: Only network gas; no hidden withdrawal or spread charges.
+
+- Inflation Shield: Designed for stablecoin payroll so purchasing power stays protected.
+
+- Transparency: All schedules, deposits, and claims are verifiable on-chain.
+
+## What We Built (Hackathon MVP)
+A trustless, automated payroll system in stablecoin, where:
+
+- Employers create payroll schedules, add employees, and deposit funds.
+
+- Employees claim monthly payments on designated payment days.
+
+- Each transaction is executed and recorded on-chain.
 
 <img width="2560" height="1137" alt="image" src="https://github.com/user-attachments/assets/44fd83f4-57c7-4bc7-88fa-a2813fc24a97" />
+
+
+## Key Properties
+
+- Non-custodial: Employers deposit directly into the payroll contract.
+
+- Deterministic claims: Time-based eligibility guards double-spend.
+
+- Transparent state: Schedules and balances are queryable on-chain.
+
+## Competitive Positioning
+
+Compared to incumbents (Deel, Ontop, Bitwage, Rise), GotaGota focuses on:
+
+- Model: Non‑custodial protocol (vs EOR/custodial platforms).
+
+- Fees: No platform withdrawal fees; network gas only.
+
+- Speed: Instant claim at block time (no T+1/T+3 banking delay).
+
+- Crypto support: Built for stablecoins; MVP in stablecoin.
+
+## Market Opportunity
+
+- Target: Knowledge‑service exports and contractor payments in Argentina.
+
+- Estimated Addressable Payroll Volume: ~$1B–$1.5B USD.
+
+- Pain points: Inflation, high fees, slow settlement.
+
+- Beachhead: Freelancers and software contractors paid in stablecoins via employer‑funded schedules.
+
+## Architecture Overview
+
+- Smart contracts (Arbitrum Sepolia): Payroll schedule registry, employee mapping, claim logic, and deposit handling.
+
+- App scaffold: Local dev environment to create schedules, add employees, and claim payouts.
+
+- Time checks and guards: Claimable months enforced via ‎`isMonthClaimable`.
+
+Planned next:
+
+- ETH support via token-based deposits and claims.
+
+- Role-based access (multisig/Org admin).
+
+- Oracles/robust timekeeping to prevent edge-case drift.
+
+- Off-chain indexer for dashboards and analytics.
+
+
 
 ## 🔧 Contract Functions
 
@@ -129,7 +193,26 @@ yarn format
 # Lint code
 yarn lint
 ```
+## Team
 
+- Product & Protocol: [Names]
+
+- Smart Contracts: [Names]
+
+- Frontend & DevOps: [Names]
+
+## License
+
+MIT 
+
+## Disclaimers
+
+- Testnet deployment; not for production use.
+
+- More Chain features are planned; current MVP pays usdc on Arbitrum.
+
+- Always verify addresses and code before use.
+- 
 ## 📝 License
 
 See [LICENCE](LICENCE) file for details.
