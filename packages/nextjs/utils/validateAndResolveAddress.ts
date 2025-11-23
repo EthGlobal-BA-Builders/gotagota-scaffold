@@ -1,6 +1,12 @@
-import { resolveENSName } from "./ensResolver";
+import { isENS, resolveENSName } from "./ensResolver";
 import { PublicClient, isAddress } from "viem";
-import { isENS } from "~~/utils/scaffold-eth/common";
+
+interface ValidationResult {
+  isValid: boolean;
+  address: string | null;
+  isENS: boolean;
+  error: string | null;
+}
 
 /**
  * Validates and resolves an address or ENS domain
@@ -11,8 +17,8 @@ import { isENS } from "~~/utils/scaffold-eth/common";
  */
 export async function validateAndResolveAddress(
   input: string,
-  publicClient: PublicClient | null | undefined,
-): Promise<{ isValid: boolean; address: string | null; isENS: boolean; error: string | null }> {
+  publicClient?: PublicClient | null,
+): Promise<ValidationResult> {
   if (!input || input.trim() === "") {
     return { isValid: false, address: null, isENS: false, error: "Empty input" };
   }
@@ -36,7 +42,6 @@ export async function validateAndResolveAddress(
     }
 
     try {
-      // Use our custom ENS resolver that directly calls ENS contracts
       const resolvedAddress = await resolveENSName(trimmedInput, publicClient);
 
       if (resolvedAddress) {
