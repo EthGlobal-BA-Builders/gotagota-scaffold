@@ -4,6 +4,539 @@
  */
 import { GenericContractsDeclaration } from "~~/utils/scaffold-eth/contract";
 
-const deployedContracts = {} as const;
+const deployedContracts = {
+  421614: {
+    Payroll: {
+      address: "0x6c15EE71395dc2C4dfa58ff1Ca0334fbC2F8e959",
+      abi: [
+        {
+          inputs: [],
+          stateMutability: "nonpayable",
+          type: "constructor",
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: true,
+              internalType: "uint256",
+              name: "payrollId",
+              type: "uint256",
+            },
+            {
+              indexed: true,
+              internalType: "address",
+              name: "employee",
+              type: "address",
+            },
+            {
+              indexed: false,
+              internalType: "uint256",
+              name: "monthlyAmount",
+              type: "uint256",
+            },
+          ],
+          name: "EmployeeAdded",
+          type: "event",
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: true,
+              internalType: "uint256",
+              name: "payrollId",
+              type: "uint256",
+            },
+            {
+              indexed: true,
+              internalType: "address",
+              name: "employer",
+              type: "address",
+            },
+            {
+              indexed: false,
+              internalType: "uint256",
+              name: "amount",
+              type: "uint256",
+            },
+          ],
+          name: "FundsDeposited",
+          type: "event",
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: true,
+              internalType: "uint256",
+              name: "payrollId",
+              type: "uint256",
+            },
+            {
+              indexed: true,
+              internalType: "address",
+              name: "employee",
+              type: "address",
+            },
+            {
+              indexed: false,
+              internalType: "uint256",
+              name: "month",
+              type: "uint256",
+            },
+            {
+              indexed: false,
+              internalType: "uint256",
+              name: "year",
+              type: "uint256",
+            },
+            {
+              indexed: false,
+              internalType: "uint256",
+              name: "amount",
+              type: "uint256",
+            },
+          ],
+          name: "PayrollClaimed",
+          type: "event",
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: true,
+              internalType: "uint256",
+              name: "payrollId",
+              type: "uint256",
+            },
+            {
+              indexed: true,
+              internalType: "address",
+              name: "employer",
+              type: "address",
+            },
+            {
+              indexed: false,
+              internalType: "uint256",
+              name: "paymentDay",
+              type: "uint256",
+            },
+            {
+              indexed: false,
+              internalType: "uint256",
+              name: "months",
+              type: "uint256",
+            },
+            {
+              indexed: false,
+              internalType: "uint256",
+              name: "totalAmount",
+              type: "uint256",
+            },
+            {
+              indexed: false,
+              internalType: "address[]",
+              name: "employees",
+              type: "address[]",
+            },
+          ],
+          name: "PayrollCreated",
+          type: "event",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "payrollId",
+              type: "uint256",
+            },
+            {
+              internalType: "address",
+              name: "employee",
+              type: "address",
+            },
+            {
+              internalType: "uint256",
+              name: "monthlyAmount",
+              type: "uint256",
+            },
+          ],
+          name: "addEmployee",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "payrollId",
+              type: "uint256",
+            },
+            {
+              internalType: "uint256",
+              name: "month",
+              type: "uint256",
+            },
+            {
+              internalType: "uint256",
+              name: "year",
+              type: "uint256",
+            },
+          ],
+          name: "claimPayroll",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "paymentDay",
+              type: "uint256",
+            },
+            {
+              internalType: "uint256",
+              name: "months",
+              type: "uint256",
+            },
+            {
+              internalType: "uint256",
+              name: "expectedTotalAmount",
+              type: "uint256",
+            },
+          ],
+          name: "createPayroll",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "payrollId",
+              type: "uint256",
+            },
+          ],
+          name: "depositFunds",
+          outputs: [],
+          stateMutability: "payable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+            {
+              internalType: "address",
+              name: "",
+              type: "address",
+            },
+          ],
+          name: "employeePayments",
+          outputs: [
+            {
+              internalType: "address",
+              name: "employee",
+              type: "address",
+            },
+            {
+              internalType: "uint256",
+              name: "monthlyAmount",
+              type: "uint256",
+            },
+            {
+              internalType: "uint256",
+              name: "totalMonths",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "payrollId",
+              type: "uint256",
+            },
+            {
+              internalType: "address",
+              name: "employee",
+              type: "address",
+            },
+          ],
+          name: "getEmployeePayment",
+          outputs: [
+            {
+              components: [
+                {
+                  internalType: "address",
+                  name: "employee",
+                  type: "address",
+                },
+                {
+                  internalType: "uint256",
+                  name: "monthlyAmount",
+                  type: "uint256",
+                },
+                {
+                  internalType: "uint256",
+                  name: "totalMonths",
+                  type: "uint256",
+                },
+              ],
+              internalType: "struct Payroll.EmployeePayment",
+              name: "",
+              type: "tuple",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "payrollId",
+              type: "uint256",
+            },
+          ],
+          name: "getPayroll",
+          outputs: [
+            {
+              components: [
+                {
+                  internalType: "address",
+                  name: "employer",
+                  type: "address",
+                },
+                {
+                  internalType: "uint256",
+                  name: "paymentDay",
+                  type: "uint256",
+                },
+                {
+                  internalType: "uint256",
+                  name: "months",
+                  type: "uint256",
+                },
+                {
+                  internalType: "uint256",
+                  name: "startMonth",
+                  type: "uint256",
+                },
+                {
+                  internalType: "uint256",
+                  name: "startYear",
+                  type: "uint256",
+                },
+                {
+                  internalType: "uint256",
+                  name: "totalAmount",
+                  type: "uint256",
+                },
+                {
+                  internalType: "uint256",
+                  name: "createdAt",
+                  type: "uint256",
+                },
+                {
+                  internalType: "bool",
+                  name: "active",
+                  type: "bool",
+                },
+              ],
+              internalType: "struct Payroll.PayrollData",
+              name: "",
+              type: "tuple",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "payrollId",
+              type: "uint256",
+            },
+            {
+              internalType: "address",
+              name: "employee",
+              type: "address",
+            },
+            {
+              internalType: "uint256",
+              name: "month",
+              type: "uint256",
+            },
+            {
+              internalType: "uint256",
+              name: "year",
+              type: "uint256",
+            },
+          ],
+          name: "hasClaimedMonth",
+          outputs: [
+            {
+              internalType: "bool",
+              name: "",
+              type: "bool",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "payrollId",
+              type: "uint256",
+            },
+            {
+              internalType: "uint256",
+              name: "month",
+              type: "uint256",
+            },
+            {
+              internalType: "uint256",
+              name: "year",
+              type: "uint256",
+            },
+          ],
+          name: "isMonthClaimable",
+          outputs: [
+            {
+              internalType: "bool",
+              name: "",
+              type: "bool",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+            {
+              internalType: "address",
+              name: "",
+              type: "address",
+            },
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          name: "monthlyClaims",
+          outputs: [
+            {
+              internalType: "bool",
+              name: "",
+              type: "bool",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "payrollCounter",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          name: "payrolls",
+          outputs: [
+            {
+              internalType: "address",
+              name: "employer",
+              type: "address",
+            },
+            {
+              internalType: "uint256",
+              name: "paymentDay",
+              type: "uint256",
+            },
+            {
+              internalType: "uint256",
+              name: "months",
+              type: "uint256",
+            },
+            {
+              internalType: "uint256",
+              name: "startMonth",
+              type: "uint256",
+            },
+            {
+              internalType: "uint256",
+              name: "startYear",
+              type: "uint256",
+            },
+            {
+              internalType: "uint256",
+              name: "totalAmount",
+              type: "uint256",
+            },
+            {
+              internalType: "uint256",
+              name: "createdAt",
+              type: "uint256",
+            },
+            {
+              internalType: "bool",
+              name: "active",
+              type: "bool",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+      ],
+      inheritedFunctions: {},
+      deployedOnBlock: 218017996,
+    },
+  },
+} as const;
 
 export default deployedContracts satisfies GenericContractsDeclaration;
