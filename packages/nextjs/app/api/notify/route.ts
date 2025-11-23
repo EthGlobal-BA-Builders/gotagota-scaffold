@@ -1,5 +1,12 @@
-import { sendFrameNotification } from "@/lib/notification-client";
+// Farcaster integration - commented out until dependencies are installed
+// import { sendFrameNotification } from "@/lib/notification-client";
 import { NextResponse } from "next/server";
+
+// Stub implementation
+const sendFrameNotification = async (_params: any) => {
+  console.warn("sendFrameNotification not implemented - Farcaster dependencies missing");
+  return { state: "error" as const, error: "Not implemented" };
+};
 
 export async function POST(request: Request) {
   try {
@@ -14,10 +21,7 @@ export async function POST(request: Request) {
     });
 
     if (result.state === "error") {
-      return NextResponse.json(
-        { error: result.error },
-        { status: 500 },
-      );
+      return NextResponse.json({ error: result.error }, { status: 500 });
     }
 
     return NextResponse.json({ success: true }, { status: 200 });

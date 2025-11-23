@@ -21,7 +21,7 @@ export default function SuccessPage() {
         {/* Congratulations Message */}
         <div className="text-center space-y-4">
           <h1 className="text-5xl font-bold uppercase">CONGRATULATIONS</h1>
-          <p className="text-xl text-gray-700">your setup is completed</p>
+          <p className="text-xl text-gray-700">Your setup is completed</p>
         </div>
 
         {/* Back Home Button */}

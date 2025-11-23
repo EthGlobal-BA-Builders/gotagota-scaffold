@@ -38,6 +38,7 @@ yarn-error.log*
 ipfs-upload.config.json
 
 # yarn
+.yarn
 .yarn/*
 !.yarn/patches
 !.yarn/plugins

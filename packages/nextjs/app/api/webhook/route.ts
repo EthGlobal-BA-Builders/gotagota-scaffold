@@ -1,10 +1,26 @@
-import { sendFrameNotification } from "@/lib/notification-client";
-import {
-  deleteUserNotificationDetails,
-  setUserNotificationDetails,
-} from "@/lib/memory-store";
 import { createPublicClient, http } from "viem";
 import { optimism } from "viem/chains";
+
+// Farcaster integration - commented out until dependencies are installed
+// import { sendFrameNotification } from "@/lib/notification-client";
+// import {
+//   deleteUserNotificationDetails,
+//   setUserNotificationDetails,
+// } from "@/lib/memory-store";
+
+// Stub implementations
+const sendFrameNotification = async (_params: any) => {
+  console.warn("sendFrameNotification not implemented - Farcaster dependencies missing");
+  return { state: "error" as const, error: "Not implemented" };
+};
+
+const setUserNotificationDetails = async (_fid: number, _details: any) => {
+  console.warn("setUserNotificationDetails not implemented - Farcaster dependencies missing");
+};
+
+const deleteUserNotificationDetails = async (_fid: number) => {
+  console.warn("deleteUserNotificationDetails not implemented - Farcaster dependencies missing");
+};
 
 const KEY_REGISTRY_ADDRESS = "0x00000000Fc1237824fb747aBDE0FF18990E59b7e";
 
@@ -63,10 +79,9 @@ export async function POST(request: Request) {
     if (untrustedData?.buttonIndex === 1) {
       // Add frame notification
       const { fid } = decode(trustedData.messageBytes);
-      const appKey = `0x${Buffer.from(
-        decode(untrustedData.state || "{}").publicKey || "",
-        "base64"
-      ).toString("hex")}` as `0x${string}`;
+      const appKey = `0x${Buffer.from(decode(untrustedData.state || "{}").publicKey || "", "base64").toString(
+        "hex",
+      )}` as `0x${string}`;
 
       const isValidKey = await verifyFidOwnership(fid, appKey);
       if (!isValidKey) {
