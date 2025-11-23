@@ -51,3 +51,50 @@ export async function savePayrollToDb(data: PayrollData, txHash: string): Promis
     client.release();
   }
 }
+
+export async function getPayrollsByDay(day: number): Promise<PayrollData[] | null> {
+  const pool = new Pool({ connectionString: process.env.DATABASE_URL });
+  const client = await pool.connect();
+  
+  try {
+    const payrollQuery = `
+      SELECT id, employer_address
+      FROM payrolls
+      WHERE day = $1
+    `;
+
+    const payrollRes = await client.query(payrollQuery, [day]);
+
+    if (payrollRes.rows.length === 0) {
+      return null;
+    }
+    
+    const payrolls = [];
+    
+    for (const payrollRow of payrollRes.rows) {
+      const employeesQuery = `
+        SELECT employee_id AS id, name, wallet_address AS "walletAddress", amount, email
+        FROM employees
+        WHERE payroll_id = $1
+      `;
+      const employeesRes = await client.query(employeesQuery, [payrollRow.id]);
+      
+      const payrollData: PayrollData = {
+        id: payrollRow.id,
+        users: employeesRes.rows,
+        day: day,
+        employerAddress: payrollRow.employer_address
+      };
+      payrolls.push(payrollData);
+    }
+
+    return payrolls;
+
+  } catch (error) {
+    console.error('Error fetching payrolls by day:', error);
+    throw error;
+  } finally {
+    client.release();
+  }
+
+}
