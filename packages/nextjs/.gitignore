@@ -36,3 +36,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 ipfs-upload.config.json
+
+# yarn
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
