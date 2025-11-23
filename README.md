@@ -2,7 +2,9 @@
 
 A decentralized payroll management system built on Ethereum, allowing employers to set up recurring payroll schedules and employees to claim their monthly payments in native ETH.
 
-#### Deployed on Arbitrum Sepolia at: [ADDRESS]() // TODO: Add contract address
+#### Deployed on Arbitrum Sepolia at: [0x6c15EE71395dc2C4dfa58ff1Ca0334fbC2F8e959](https://sepolia.arbiscan.io/address/0x6c15EE71395dc2C4dfa58ff1Ca0334fbC2F8e959)
+
+Find it on explorer: [https://sepolia.arbiscan.io/address/0x6c15EE71395dc2C4dfa58ff1Ca0334fbC2F8e959](https://sepolia.arbiscan.io/address/0x6c15EE71395dc2C4dfa58ff1Ca0334fbC2F8e959)
 
 ## 🎯 Mission
 
