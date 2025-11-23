@@ -2,6 +2,10 @@
 
 GotaGota is a decentralized payroll protocol that lets employers set recurring payment schedules and employees claim monthly wages on-chain in minutes. Built during EthGlobal BA, it targets real needs in Argentina: instant access to funds, near‑zero fees, and protection against inflation via stablecoins.
 
+
+<img width="1083" height="808" alt="image" src="https://github.com/user-attachments/assets/0a7e2cf0-effa-49c2-9179-ee78aff4dff8" />
+
+
 #### Deployed on Arbitrum Sepolia at: [0x6c15EE71395dc2C4dfa58ff1Ca0334fbC2F8e959](https://sepolia.arbiscan.io/address/0x6c15EE71395dc2C4dfa58ff1Ca0334fbC2F8e959)
 
 Find it on explorer: [https://sepolia.arbiscan.io/address/0x6c15EE71395dc2C4dfa58ff1Ca0334fbC2F8e959](https://sepolia.arbiscan.io/address/0x6c15EE71395dc2C4dfa58ff1Ca0334fbC2F8e959)
@@ -195,11 +199,10 @@ yarn lint
 ```
 ## Team
 
-- Product & Protocol: [Names]
-
-- Smart Contracts: [Names]
-
-- Frontend & DevOps: [Names]
+- Product: Bala Chen https://github.com/Agyness0410
+- Smart Contracts: Rocío https://github.com/RocioCM
+- Frontend:Paola Crispin https://github.com/paolacrispin
+- Backend: Nahuel Arrieta https://github.com/NahuelArrieta
 
 ## License
 
